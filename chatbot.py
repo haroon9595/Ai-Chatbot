@@ -1,6 +1,6 @@
 import time
+import os
 import streamlit as st
-from dotenv import load_dotenv
 
 from langchain_groq import ChatGroq
 from langchain_core.messages import (
@@ -9,10 +9,12 @@ from langchain_core.messages import (
     AIMessage
 )
 
+
 # ----------------------------
-# Load Environment Variables
+# Load Secrets
 # ----------------------------
-load_dotenv()
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+
 
 # ----------------------------
 # Streamlit Page Config
